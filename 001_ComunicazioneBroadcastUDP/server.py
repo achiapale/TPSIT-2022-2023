@@ -7,10 +7,10 @@ BUFFER_SIZE = 1024
 # possibilità:  1. localhost (127.0.0.1)
 #               2. indirizzo di una mia interfaccia -> utile perchè se si hanno più schede di rete si hanno più ip
 
-HOST = "0.0.0.0"
+HOST = input("Inserire l'indirizzo dell'host: ")
 
 # > di 1024
-PORT = 5000
+PORT = imput("Inserire il numero della porta: ")
 
 mystr = "ciao" # oggetto di tipo stringa
 
@@ -23,7 +23,7 @@ def chatServer():
     # non serve al fondo mettere s.close()
         with socket(AF_INET, SOCK_DGRAM) as s:
             # nel bind si passa una tupla, non si possono aggiungere altri elementi
-            s.bind((HOST, PORT))
+            s.bind((f"{HOST}", int(PORT)))
             msg = s.recvfrom(BUFFER_SIZE)
             # msg è un bytes, ma noi lo vogliamo in stringa
             msg = msg[0].decode('utf8')
