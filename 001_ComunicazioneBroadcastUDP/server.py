@@ -7,29 +7,26 @@ BUFFER_SIZE = 1024
 # possibilità:  1. localhost (127.0.0.1)
 #               2. indirizzo di una mia interfaccia -> utile perchè se si hanno più schede di rete si hanno più ip
 
-HOST = input("Inserire l'indirizzo dell'host: ")
-
-# > di 1024
-PORT = imput("Inserire il numero della porta: ")
-
-mystr = "ciao" # oggetto di tipo stringa
 
 # per trasferire dei dati si utilizzano i bytes (in utf8) e non le stringhe
 # oggetto di tipo bytes -> array di byte
 
-def chatServer():
-    while True:
+def chatServer(HOST, PORT):
     # quando si esce da with il socket viene automaticamente chiuso
     # non serve al fondo mettere s.close()
-        with socket(AF_INET, SOCK_DGRAM) as s:
-            # nel bind si passa una tupla, non si possono aggiungere altri elementi
-            s.bind((f"{HOST}", int(PORT)))
-            msg = s.recvfrom(BUFFER_SIZE)
-            # msg è un bytes, ma noi lo vogliamo in stringa
-            msg = msg[0].decode('utf8')
-            print(msg)
+    with socket(AF_INET, SOCK_DGRAM) as s:
+        # nel bind si passa una tupla, non si possono aggiungere altri elementi
+        s.bind((f"{HOST}", int(PORT)))
+        msg = s.recvfrom(BUFFER_SIZE)
+        # msg è un bytes, ma noi lo vogliamo in stringa
+        msg = msg[0].decode('utf8')
+        print(msg)
 
 
 # eseguito solo da terminale
 if __name__ == "__main__":
-    chatServer()
+    HOST = input("Inserire l'indirizzo dell'host: ")
+    # > di 1024
+    PORT = input("Inserire il numero della porta: ")
+    while True:
+        chatServer(HOST, PORT)
