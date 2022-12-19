@@ -7,11 +7,14 @@ def chatClient(HOST, PORT, NAME):
     with socket(AF_INET, SOCK_DGRAM) as s:
         while running == True:
             msg = input("Inserire il messaggio. Se vuoi uscire, digitare 'exit': ")
-            if(msg != "exit"):
-                running = False
-            else:
-                pkt = Packet(NAME, MSG)
-                s.sendto(pkt.to_bytes(), HOST, PORT)
+            if(msg.lower() != "exit"):
+                break
+    
+            pkt = Packet(NAME, MSG)
+            buffer = msg.to_bytes()
+            print(buffer)
+            
+            s.sendto(buffer, (HOST, int(PORT)))
 
 
 if __name__ == "__main__":

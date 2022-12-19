@@ -4,7 +4,7 @@ from packet import *
 #byte che voglio leggere
 BUFFER_SIZE = 1024
 
-HOST = "127.0.0.1"
+HOST = "0.0.0.0"
 PORT = 5000
 # interfaccia su cui vogiamo ascoltare
 # possibilità:  1. localhost (127.0.0.1)

@@ -1,0 +1,13 @@
+
+DA FARE NELLA POWERSHELL DENTRO PYTHON TPSIT:
+
+git init
+git status (deve essere rosso -> untracked)
+git add "nomecartella"
+git status (deve diventare verde)
+
+--- PROVARE A FARE ---
+git commit -m "chat UDP with broadcast"
+
+--- tre comandi di github da copiare ---
+git remote add origin git@github.com:achiapale/TPSIT-2022-2023.git
