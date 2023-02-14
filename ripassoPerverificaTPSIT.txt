@@ -1,7 +1,0 @@
-PROTOCOLLO UDP.
-SERVER ->
-CLIENT ->
-
-PROTOCOLLO TCP.
-SERVER -> s.bind(), s.listen(), client, clientAddress = s.accept()
-CLIENT -> s.connect(address), 
